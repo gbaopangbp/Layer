@@ -11,3 +11,15 @@ ios中layer和view是相对应的平行的树行结构，也是一个树形结�
 
 一个view会默认生成一个layer，
 修改backgtound
+
+
+第二章 寄宿图
+用layer还可以进行图像绘制，绘制在contents属性中，需要注意的是contents为id类型，赋值时需要注意，需要CGImage的指针CGImageRef。造成这个的原因时mac上能够多种类型对content赋值。一般用法为layer.contents = (__bridge id)image.CGImage;如果没有arc可以不用bridge。
+contets的各个属性：
+1 contentGravity对应view的contentmode，图片的填充模式
+2 contentsScale 图片显示比例，一个点占用几个像素，主要作用是适配不同分辨率的屏幕，当contentGravity设置为一些值时，这个属性会不起作用。默认为1.0，一般设置为uiscreen一样的scale
+3 maskToBounds对应view的clipsToBounds，剪掉frame外的部分
+4 contentsRect绘制的举行，但是坐标系是比例坐标系，一个用途是从一个大图中切出一些小图标单独使用
+5 contentsCenter定义的不是中心点，而是一个矩形区域，这个区域为伸缩区域
+6 delegate 在view绘制时，如果有layer，会自动调用layer的代理。这个代理不用引用，直接写出函数就行。只要实现了drawrect函数，就会自动生成一个layer，这个layer也会自动设置好代理，不要修改这个layer的代理。所以苹果建议没事不要实现drawrect。代理会先调用(void)displayLayer:(CALayer *)layer，如果有这个函数，不会再调用其他，没有会调用- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx;让用户绘制
+layer需要主动调用display才能调用代理
