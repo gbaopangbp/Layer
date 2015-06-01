@@ -35,3 +35,14 @@ frame是一个虚拟属性，是由bounds和postion决定的，当frame被修改
 4 z坐标轴 zPositon和anchorPointZ两个属性 修改zPositon的值可以修改图层的绘制顺序
 5 Hit Testing layer不响应事件，但是能够处理hittest，有两个方法containsPoint判断是否包含某个点，返回yes no，hitTest返回击中的layer
 6 自动布局 通过代理- (void)layoutSublayersOfLayer:(CALayer *)layer;当当图层的bounds发生改变，或者图层的-setNeedsLayout方法被调用
+
+第四章 视觉效果
+1 圆角conrnerRadius，圆角半径，masksToBounds剪切掉多余的部分
+2 图层边框borderWidth borderColor
+3 阴影，图层的阴影不是根据bounds来绘制的，而是根据轮廓来绘制的
+  shadowOpacity透明度 shadowColor shadowOffset shadowRadius模糊度
+4 阴影裁减 当裁减时，会裁掉bounds之外的内容，但是那些部分是有阴影效果的，当两个同时设置时，就出现问题。解决方法时，再专门做一个layer设置阴影
+5 shadowPath属性，阴影是按轮廓来绘制，需要先计算出轮廓，这样效率比较低，如果知道阴影要绘制的范围，可以通过这个属性来设置
+6 图层蒙板 mask属性也是一个layer，设置了这个属性，会将原来的按照这个形状裁减
+7 拉伸过滤 minificationFilter缩小 magnificationFilter放大
+8 组透明 opacity设置layer的透明度，假如一组layer都设置了百分之五十的透明度，最后的效果不是每个都是百分之五十。解决方法shouldRasterize，设置这个属性后，会将整个组合成一张图片，然后再设置透明度，就会达到效果。但是rasterizationScale为适配屏幕密度，默认为1，需要设置的和屏幕一样。
