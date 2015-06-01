@@ -23,3 +23,15 @@ contets的各个属性：
 5 contentsCenter定义的不是中心点，而是一个矩形区域，这个区域为伸缩区域
 6 delegate 在view绘制时，如果有layer，会自动调用layer的代理。这个代理不用引用，直接写出函数就行。只要实现了drawrect函数，就会自动生成一个layer，这个layer也会自动设置好代理，不要修改这个layer的代理。所以苹果建议没事不要实现drawrect。代理会先调用(void)displayLayer:(CALayer *)layer，如果有这个函数，不会再调用其他，没有会调用- (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx;让用户绘制
 layer需要主动调用display才能调用代理
+
+第三章 图层几何学
+和uiview的frame，bounds，center对应，layer也有相应的属性frame，bound，postion。
+
+frame是一个虚拟属性，是由bounds和postion决定的，当frame被修改时，另外两个属性也会自动调整。当layer旋转后，frame就会时包含整个的大矩形。
+
+1 锚点anchorPoint，比例坐标系，决定了postion点的描叙的是哪个位置。旋转时是围绕锚点旋转，一个常见应用是，旋转一个图片时，但是不以中心点旋转，这个时候修改锚点就行。
+2 坐标系 layer提供了一系列point在各个不同layer之间的坐标转化
+3 翻转几何结构 mac和ios的00点位置不一样，通过geometryFlipped来区分，ios为yes
+4 z坐标轴 zPositon和anchorPointZ两个属性 修改zPositon的值可以修改图层的绘制顺序
+5 Hit Testing layer不响应事件，但是能够处理hittest，有两个方法containsPoint判断是否包含某个点，返回yes no，hitTest返回击中的layer
+6 自动布局 通过代理- (void)layoutSublayersOfLayer:(CALayer *)layer;当当图层的bounds发生改变，或者图层的-setNeedsLayout方法被调用

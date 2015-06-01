@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>278A6ECC-4EFE-4FDB-88D7-AF1033EE28B1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>123E627B7AB83D8FB68B305F4A8FD9E7254B780B</key>
+		<string>github.com:gbaopangbp/Layer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>LayerChp3/LayerChp3.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>123E627B7AB83D8FB68B305F4A8FD9E7254B780B</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:gbaopangbp/Layer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>123E627B7AB83D8FB68B305F4A8FD9E7254B780B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>123E627B7AB83D8FB68B305F4A8FD9E7254B780B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Layer</string>
+		</dict>
+	</array>
+</dict>
+</plist>
